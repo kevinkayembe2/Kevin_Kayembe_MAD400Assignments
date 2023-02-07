@@ -1,0 +1,18 @@
+div.tags {
+    // style the wrapper around the tags
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 8px 0;
+  
+    span {
+      // style each individual tag
+      @include bordered-button-span; // using the mixin here!
+      margin-bottom: 8px;
+      color: rgb(40, 102, 48);
+    }
+    span::before {
+      content: "#";
+      color: #fff;
+    }
+}

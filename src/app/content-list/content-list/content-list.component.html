@@ -1,1 +1,4 @@
-<p>content-list works!</p>
+<app-content-list-item
+    *ngFor="let singleVideoGame of videoGameArray; even as thisVideoGameIsEven; odd as thisVideoGameIsOdd"
+    [contentItemInputValue]="singleVideoGame"
+    [class]="thisVideoGameIsEven ? 'even-game' : 'odd-game'"></app-content-list-item>
