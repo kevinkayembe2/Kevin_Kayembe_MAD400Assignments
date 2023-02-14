@@ -15,6 +15,9 @@ export class ContentListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.movieSerivce.getContent();
+    this.movieSerivce.getContent().subscribe((movies: IContent[]) => {
+      console.log("Getting the movie list");
+      this.movieArray = movies;
+    });
   }
 }
