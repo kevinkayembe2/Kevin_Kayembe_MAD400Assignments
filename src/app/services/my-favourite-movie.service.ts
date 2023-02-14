@@ -49,4 +49,22 @@ export class MyFavouriteMovieService {
 
     return of(MOVIES);
   }
+
+  deleteContentItem(index: number): Observable<IContent> {
+    let movieFound: IContent | undefined;
+    for (let i = 0; i < MOVIES.length; i++){
+      if (MOVIES[i].id === index) {
+        movieFound = MOVIES[i];
+        delete MOVIES[i];
+        console.log("Did the game get deleted? ", MOVIES);
+        break;
+      }
+    }
+
+    if (!movieFound) { // never found a valid game
+      return of(INVALIDMOVIE);
+    }
+    
+    return of(movieFound);
+  }
 }

@@ -49,5 +49,9 @@ export class ContentListComponent implements OnInit {
     this.movieSerivce.updateContentItem(testGameToUpdate).subscribe((movies: IContent[]) => {
       console.log("Testing updating a movie in the array -  Speed Racer should be replaced: ", movies);
     });
+
+    this.movieSerivce.deleteContentItem(3).subscribe((movie: IContent) => {
+      console.log("Testing deleting a single item (Paul Blart): ", movie);
+    });
   }
 }
