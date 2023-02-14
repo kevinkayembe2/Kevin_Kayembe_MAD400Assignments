@@ -37,4 +37,16 @@ export class MyFavouriteMovieService {
 
     return of(MOVIES);
   }
+
+  updateContentItem(item: IContent): Observable<IContent[]> {
+    let indexOfMovieToUpdate = MOVIES.findIndex((movie: IContent) => {
+      return movie.id === item.id;
+    });
+
+    if (indexOfMovieToUpdate !== -1) {
+      MOVIES[indexOfMovieToUpdate] = item;
+    }
+
+    return of(MOVIES);
+  }
 }
