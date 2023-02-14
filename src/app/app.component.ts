@@ -14,8 +14,14 @@ export class AppComponent implements OnInit {
   constructor(private movieService: MyFavouriteMovieService) {}
   
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.getTheNewItem("3");
   }
 
-  
+  getTheNewItem(newIdNumber: string): void {
+    console.warn("Getting an item: ", newIdNumber);
+    this.movieService.getContentItem(Number(newIdNumber)).subscribe((movie: IContent) => {
+      console.warn("Got the item: ", movie);
+      this.singleMovie = movie;
+    });
+  }
 }
