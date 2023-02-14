@@ -19,5 +19,9 @@ export class ContentListComponent implements OnInit {
       console.log("Getting the movie list");
       this.movieArray = movies;
     });
+
+    this.movieSerivce.getContentItem(2).subscribe((movie: IContent) => {
+      console.log("Testing getting a single content item: ", movie);
+    })
   }
 }
