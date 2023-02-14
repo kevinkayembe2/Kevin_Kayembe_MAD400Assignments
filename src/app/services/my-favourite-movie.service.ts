@@ -29,4 +29,12 @@ export class MyFavouriteMovieService {
     console.warn("Got the item", movieFound);
     return of(movieFound);
   }
+
+  addContentItem(item: IContent): Observable<IContent[]> {
+    if (MOVIES.find((movie: IContent) => movie.id === item.id) == undefined) {
+      MOVIES.push(item);
+    }
+
+    return of(MOVIES);
+  }
 }

@@ -23,5 +23,18 @@ export class ContentListComponent implements OnInit {
     this.movieSerivce.getContentItem(2).subscribe((movie: IContent) => {
       console.log("Testing getting a single content item: ", movie);
     })
+
+    let testGameToAdd: IContent = {
+      id: 4,
+      title: "Pirates of the Caribbean: The Curse of the Black Pearl",
+      description: "Johnny Depp starrs in as a dishonest, hilarious Captain Jack Sparrow.",
+      author: "Gore Verbinksi",
+      imgSrc: "https://upload.wikimedia.org/wikipedia/en/8/89/Pirates_of_the_Caribbean_-_The_Curse_of_the_Black_Pearl.png",
+      type: "pirates"
+    }
+
+    this.movieSerivce.addContentItem(testGameToAdd).subscribe((movies: IContent[]) => {
+      console.log("Testing adding a movie to the array: ", movies);
+    });
   }
 }
