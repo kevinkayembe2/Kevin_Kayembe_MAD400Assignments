@@ -36,3 +36,10 @@ export const MOVIES: IContent[] = [{
       type: "Comedy",
       tags: ["Paul Blart", "Scooter Patrol"]
 }];
+
+export const INVALIDMOVIE: IContent = {
+    id: -1,
+    title: "",
+    author: "",
+    type: ""
+}
