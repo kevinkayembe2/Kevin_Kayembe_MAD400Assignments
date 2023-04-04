@@ -1,5 +1,5 @@
 <div *ngIf="contentItemInputValue">
-    <h2>{{contentItemInputValue.title}}</h2>
+    <h2><a [routerLink]="['/content/', contentItemInputValue.ID]">{{contentItemInputValue.title}}</a></h2>
     <img *ngIf="contentItemInputValue.imgSrc" [src]="contentItemInputValue.imgSrc" (click)="imageClicked()"/>
     <div class="meta-data">
         <span class="type">{{contentItemInputValue.type}}</span>
