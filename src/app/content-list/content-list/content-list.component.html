@@ -1,4 +1,4 @@
 <app-content-list-item
-    *ngFor="let singleVideoGame of videoGameArray; even as thisVideoGameIsEven; odd as thisVideoGameIsOdd"
-    [contentItemInputValue]="singleVideoGame"
-    [class]="{'even-game': thisVideoGameIsEven, 'odd-game': thisVideoGameIsOdd}"></app-content-list-item>
+    *ngFor="let singleMovie of movieArray; even as thisMovieIsEven; odd as thisMovieIsOdd"
+    [contentItemInputValue]="singleMovie"
+    [ngClass]="{'even-game': thisMovieIsEven, 'odd-game': thisMovieIsOdd}"></app-content-list-item>

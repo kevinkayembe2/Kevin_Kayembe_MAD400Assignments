@@ -37,21 +37,21 @@ export class ContentListComponent implements OnInit {
     //   console.log("Testing adding a movie to the array: ", movies);
     // });
 
-    let testGameToUpdate: IContent = {
-      id: 0,
-      title: "Pirates of the Caribbean: The Curse of the Black Pearl",
-      description: "Johnny Depp starrs in as a dishonest, hilarious Captain Jack Sparrow.",
-      author: "Gore Verbinksi",
-      imgSrc: "https://upload.wikimedia.org/wikipedia/en/8/89/Pirates_of_the_Caribbean_-_The_Curse_of_the_Black_Pearl.png",
-      type: "pirates"
-    }
+    // let testGameToUpdate: IContent = {
+    //   id: 0,
+    //   title: "Pirates of the Caribbean: The Curse of the Black Pearl",
+    //   description: "Johnny Depp starrs in as a dishonest, hilarious Captain Jack Sparrow.",
+    //   author: "Gore Verbinksi",
+    //   imgSrc: "https://upload.wikimedia.org/wikipedia/en/8/89/Pirates_of_the_Caribbean_-_The_Curse_of_the_Black_Pearl.png",
+    //   type: "pirates"
+    // }
 
-    this.movieSerivce.updateContentItem(testGameToUpdate).subscribe((movies: IContent[]) => {
-      console.log("Testing updating a movie in the array -  Speed Racer should be replaced: ", movies);
-    });
+    // this.movieSerivce.updateContentItem(testGameToUpdate).subscribe((movies: IContent[]) => {
+    //   console.log("Testing updating a movie in the array -  Speed Racer should be replaced: ", movies);
+    // });
 
-    this.movieSerivce.deleteContentItem(3).subscribe((movie: IContent) => {
-      console.log("Testing deleting a single item (Paul Blart): ", movie);
-    });
+    // this.movieSerivce.deleteContentItem(3).subscribe((movie: IContent) => {
+    //   console.log("Testing deleting a single item (Paul Blart): ", movie);
+    // });
   }
 }

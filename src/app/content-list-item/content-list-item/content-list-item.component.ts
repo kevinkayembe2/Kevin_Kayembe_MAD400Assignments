@@ -8,4 +8,8 @@ import { IContent } from 'src/app/models/icontent';
 })
 export class ContentListItemComponent {
   @Input() contentItemInputValue?: IContent;
+
+  imageClicked(): void {
+    console.log("ID: ", this.contentItemInputValue?.id, " Description: ", this.contentItemInputValue?.description)
+  }
 }
