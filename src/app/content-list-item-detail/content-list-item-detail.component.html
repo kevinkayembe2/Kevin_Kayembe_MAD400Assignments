@@ -1,4 +1,7 @@
-<div *ngIf="movieDetailItem">
+<a class="back-to-list" routerLink="/content">
+    Back to list
+</a>
+<div *ngIf="movieDetailItem" class="content-wrapper">
     <h2>{{movieDetailItem.title}}</h2>
     <img *ngIf="movieDetailItem.imgSrc" [src]="movieDetailItem.imgSrc"/>
     <p *ngIf="movieDetailItem.description" [innerHTML]="movieDetailItem.description"></p>
