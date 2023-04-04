@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: "content",
     component: ContentListComponent
+  },
+  {
+    path: "",
+    redirectTo: "/content"
   }
 ];
 
