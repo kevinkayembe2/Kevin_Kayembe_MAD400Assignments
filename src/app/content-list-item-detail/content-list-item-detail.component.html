@@ -1,1 +1,12 @@
-<p>content-list-item-detail works!</p>
+<div *ngIf="movieDetailItem">
+    <h2>{{movieDetailItem.title}}</h2>
+    <img *ngIf="movieDetailItem.imgSrc" [src]="movieDetailItem.imgSrc"/>
+    <p *ngIf="movieDetailItem.description" [innerHTML]="movieDetailItem.description"></p>
+    <div class="meta-data">
+        <span class="author">{{movieDetailItem.author}}</span>
+        <span class="type">{{movieDetailItem.type}}</span>
+    </div>
+    <div *ngIf="movieDetailItem.tags" class="tags">
+        <span *ngFor="let tag of movieDetailItem.tags">{{tag}}</span>
+    </div>
+</div>
