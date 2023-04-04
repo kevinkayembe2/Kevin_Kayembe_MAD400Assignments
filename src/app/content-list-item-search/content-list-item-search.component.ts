@@ -9,8 +9,11 @@ import { MyFavouriteMovieService } from '../services/my-favourite-movie.service'
 })
 export class ContentListItemSearchComponent implements OnInit {
   singleMovie?: IContent;
+  searchDidNotWork: boolean;
 
-  constructor(private movieService: MyFavouriteMovieService) {}
+  constructor(private movieService: MyFavouriteMovieService) {
+    this.searchDidNotWork = false;
+  }
   
   ngOnInit(): void {
     this.getTheNewItem("3");
@@ -19,6 +22,12 @@ export class ContentListItemSearchComponent implements OnInit {
   getTheNewItem(newIdNumber: string): void {
     console.warn("Getting an item: ", newIdNumber);
     this.movieService.getContentItem(Number(newIdNumber)).subscribe((movie: IContent) => {
+      if (movie == undefined || movie.id === -1) {
+        this.searchDidNotWork = true;
+        return;
+      }
+      
+      this.searchDidNotWork = false;
       console.warn("Got the item: ", movie);
       this.singleMovie = movie;
     });
