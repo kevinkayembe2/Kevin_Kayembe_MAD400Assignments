@@ -5,6 +5,7 @@ import { ContentListComponent } from './content-list/content-list/content-list.c
 import { ContentListItemDetailComponent } from './content-list-item-detail/content-list-item-detail.component';
 import { ContentListItemSearchComponent } from './content-list-item-search/content-list-item-search.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ModifyContentComponent } from './modify-content/modify-content.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: "search",
     component: ContentListItemSearchComponent
+  },
+  {
+    path: "addContent",
+    component: ModifyContentComponent
   },
   {
     path: "**",
