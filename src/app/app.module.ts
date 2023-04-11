@@ -11,6 +11,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { TopNavigationBarComponent } from './top-navigation-bar/top-navigation-bar.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { InMemoryDataService } from './services/in-memory-data.service';
     AppRoutingModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       delay: 1000,
-    })
+    }),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
