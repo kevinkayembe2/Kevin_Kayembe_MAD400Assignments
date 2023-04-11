@@ -1,70 +1,40 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { INVALIDMOVIE, MOVIES } from '../data/mock-content';
 import { IContent } from '../models/icontent';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MyFavouriteMovieService {
 
-  constructor() { }
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-type':
+        'application/json'
+    })
+  };
+
+  constructor(private http: HttpClient) { }
 
   getContent(): Observable<IContent[]> {
-    return of(MOVIES);
+    return this.http.get<IContent[]>("api/movies");
   }
 
   getContentItem(index: number): Observable<IContent> {
     console.warn("Got to get content item");
-    let movieFound: IContent | undefined;
-    for (let i = 0; i < MOVIES.length; i++) {
-      if (MOVIES[i].id == index) {
-        movieFound = MOVIES[i];
-        break;
-      }
-    }
-    if (!movieFound) {
-      return of(INVALIDMOVIE);
-    }
-    console.warn("Got the item", movieFound);
-    return of(movieFound);
+    return this.http.get<IContent>("api/movies/" + index);
   }
 
-  addContentItem(item: IContent): Observable<IContent[]> {
-    if (MOVIES.find((movie: IContent) => movie.id === item.id) == undefined) {
-      MOVIES.push(item);
-    }
-
-    return of(MOVIES);
+  addContentItem(item: IContent): Observable<IContent> {
+    return this.http.post<IContent>("api/movies", item, this.httpOptions);
   }
 
-  updateContentItem(item: IContent): Observable<IContent[]> {
-    let indexOfMovieToUpdate = MOVIES.findIndex((movie: IContent) => {
-      return movie.id === item.id;
-    });
-
-    if (indexOfMovieToUpdate !== -1) {
-      MOVIES[indexOfMovieToUpdate] = item;
-    }
-
-    return of(MOVIES);
+  updateContentItem(item: IContent): Observable<IContent> {
+    return this.http.put<IContent>("api/movies", item, this.httpOptions);
   }
 
-  deleteContentItem(index: number): Observable<IContent> {
-    let movieFound: IContent | undefined;
-    for (let i = 0; i < MOVIES.length; i++){
-      if (MOVIES[i].id === index) {
-        movieFound = MOVIES[i];
-        delete MOVIES[i];
-        console.log("Did the game get deleted? ", MOVIES);
-        break;
-      }
-    }
-
-    if (!movieFound) { // never found a valid game
-      return of(INVALIDMOVIE);
-    }
-    
-    return of(movieFound);
+  deleteContentItem(index: number): Observable<unknown> {
+    return this.http.delete<IContent>("api/movies/" + index, this.httpOptions);
   }
 }
