@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { IContent } from '../models/icontent';
+import { INVALIDMOVIE } from '../data/mock-content';
 
 @Component({
   selector: 'app-modify-content',
@@ -6,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./modify-content.component.scss']
 })
 export class ModifyContentComponent {
-
+  newContentItem: IContent = INVALIDMOVIE;
+  tagsToBeParsed: string = "";
 }

@@ -1,1 +1,24 @@
-<p>modify-content works!</p>
+<h1>Add New Movie</h1>
+<p>
+    <label>
+        Title: <input [(ngModel)]="newContentItem.title">
+    </label>
+    <label>
+        Description: <input [(ngModel)]="newContentItem.description">
+    </label>
+    <label>
+        Author: <input [(ngModel)]="newContentItem.author">
+    </label>
+    <label>
+        Image Source URL: <input [(ngModel)]="newContentItem.imgSrc">
+    </label>
+    <label>
+        Movie Type: <input [(ngModel)]="newContentItem.type">
+    </label>
+    <label>
+        Tags (comma seperated): <input [(ngModel)]="tagsToBeParsed">
+    </label>
+</p>
+<p>
+    <button>Add Button</button>
+</p>

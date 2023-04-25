@@ -40,6 +40,9 @@ export const MOVIES: IContent[] = [{
 export const INVALIDMOVIE: IContent = {
     id: -1,
     title: "",
+    description: "",
     author: "",
-    type: ""
+    imgSrc: "",
+    type: "",
+    tags: []
 }
